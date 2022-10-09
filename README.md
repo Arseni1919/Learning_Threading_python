@@ -5,10 +5,6 @@
 Python threading allows you to have different parts of your program run concurrently
 and can simplify your design.
 
-## Credits
-
-- [Real Python Tutorial - An Intro to Threading in Python](https://realpython.com/intro-to-python-threading/#using-a-threadpoolexecutor)
-- [Real Python Tutorial - Python Concurrency](https://realpython.com/python-concurrency/)
 
 ## Starting A Thread
 
@@ -35,6 +31,29 @@ if __name__ == "__main__":
     # x.join()
     logging.info("Main    : all done")
 ```
+
+
+## Daemon Threads
+
+Those threads finish to run imidiately when the all other non-deamon threads finished without completion.
+
+```python
+x = threading.Thread(target=thread_function, args=(1,), daemon=True)
+```
+
+## join() a Thread
+
+To tell one thread to wait for another thread to finish, you call `.join()`. If you uncomment that line, the main thread will pause and wait for the thread x to complete running. Daemon or not it does not matter.
+
+```python
+x.join()
+```
+
+
+## Credits
+
+- [Real Python Tutorial - An Intro to Threading in Python](https://realpython.com/intro-to-python-threading/#using-a-threadpoolexecutor)
+- [Real Python Tutorial - Python Concurrency](https://realpython.com/python-concurrency/)
 
 
 
