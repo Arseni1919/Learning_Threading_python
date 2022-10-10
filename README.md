@@ -176,6 +176,19 @@ That thread is still required to call `.release()` the same number of times it c
 Lock and RLock are two of the basic tools used in threaded programming to prevent race conditions. 
 There are a few other that work in different ways. 
 
+## Events
+
+The `threading.Event` object allows one thread to signal an event while many other threads can be waiting for that event to happen. 
+The key usage in this code is that the threads that are waiting for the event do not necessarily need to stop what they are doing, they can just check the status of the Event every once in a while.
+
+```python
+event = threading.Event()
+...
+while not event.is_set():
+    ...
+event.set()
+```
+
 ## Producer-Consumer Threading Using Lock
 
 ```python
@@ -342,19 +355,6 @@ if __name__ == "__main__":
         time.sleep(0.1)
         logging.info("Main: about to set event")
         event.set()
-```
-
-## Events
-
-The `threading.Event` object allows one thread to signal an event while many other threads can be waiting for that event to happen. 
-The key usage in this code is that the threads that are waiting for the event do not necessarily need to stop what they are doing, they can just check the status of the Event every once in a while.
-
-```python
-event = threading.Event()
-...
-while not event.is_set():
-    ...
-event.set()
 ```
 
 ## Credits
