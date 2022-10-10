@@ -312,7 +312,7 @@ if __name__ == "__main__":
         event.set()
 ```
 
-### A even shorter version:
+### An even shorter version:
 
 ```python
 import concurrent.futures
