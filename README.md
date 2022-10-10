@@ -346,7 +346,7 @@ if __name__ == "__main__":
 
 ## Events
 
-The `threading.Even`t object allows one thread to signal an event while many other threads can be waiting for that event to happen. 
+The `threading.Event` object allows one thread to signal an event while many other threads can be waiting for that event to happen. 
 The key usage in this code is that the threads that are waiting for the event do not necessarily need to stop what they are doing, they can just check the status of the Event every once in a while.
 
 ```python
